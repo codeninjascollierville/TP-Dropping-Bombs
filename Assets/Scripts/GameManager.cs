@@ -41,9 +41,14 @@ public class GameManager : MonoBehaviour
             {
                ResetGame();
             }
+        } else
+        {
+            if (!player)
+            {
+                OnPlayerKilled();
+            }
         }
        
-
         var nextBomb = GameObject.FindGameObjectsWithTag("Bomb");
         foreach (GameObject bombObject in nextBomb)
         {
@@ -53,4 +58,11 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+    void OnPlayerKilled()
+       {
+         spawner.active = false;
+         gameStarted = false;
+
+         splash.SetActive(true);
+       }
 }
