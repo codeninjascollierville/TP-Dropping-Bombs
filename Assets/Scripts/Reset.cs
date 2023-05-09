@@ -7,7 +7,10 @@ public class Reset : MonoBehaviour
 {
     private void OnCollisionEnter(Collision collision)
     {
-        Destroy(GameObject);
-        
+        DestroyObject();
+    }
+    private void DestroyObject()
+    {
+        Destroy(gameObject);
     }
 }

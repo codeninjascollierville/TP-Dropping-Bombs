@@ -1,8 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class RocketAnimation : MonoBehaviour
+public class RocketAnimate : MonoBehaviour
 {
     [Header("Animator")]
     public Animator animator;
@@ -11,7 +10,6 @@ public class RocketAnimation : MonoBehaviour
     {
         animator = GetComponent<Animator>();
     }
-
     // Update is called once per frame
     void FixedUpdate()
     {
