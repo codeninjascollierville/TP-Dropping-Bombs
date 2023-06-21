@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public Text gameOverText;
     public Text playAgainText;
     public GameObject bombObject;
+    private bool  smokeCleared = true;
     void Start()
     {
        spawner.active = false;
@@ -37,15 +38,15 @@ public class GameManager : MonoBehaviour
     {
         if(!gameStarted)
         {
-            if(Input.anyKeyDown)
+            if(Input.anyKeyDown && smokeCleared)
             {
+                smokeCleared = false;
                 ResetGame();
             }
         } else
         {
             if(!player)
             {
-                print("pain");
                 OnPlayerKilled();
             }
         }
@@ -80,6 +81,12 @@ public class GameManager : MonoBehaviour
     {
         spawner.active = false;
         gameStarted = false;
+        splash.SetActive(true);
+        Invoke("SplashScreen", 2f);
+    }
+    void SplashScreen()
+    {
+        smokeCleared = true;
         splash.SetActive(true);
     }
 }

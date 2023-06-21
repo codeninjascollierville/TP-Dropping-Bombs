@@ -221,6 +221,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7134216133008347880, guid: 82169fb5eac75114e9dae4d2dd916e6f,
+        type: 3}
+      propertyPath: explosion
+      value: 
+      objectReference: {fileID: 8067576351344207039, guid: 991e4f8c316732a4bb4d30d13a5ced50,
+        type: 3}
     - target: {fileID: 1293495186871882, guid: 82169fb5eac75114e9dae4d2dd916e6f, type: 3}
       propertyPath: m_Name
       value: Rocket
@@ -1296,7 +1302,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1846542043
 MonoBehaviour:
   m_ObjectHideFlags: 0
