@@ -19,9 +19,19 @@ public class GameManager : MonoBehaviour
     public Text gameOverText;
     public Text playAgainText;
     public GameObject bombObject;
+
+    private int bestScore = 0;
+    public Text bestScoreText;
+    private bool beatBestScore;
+
+
+
+
     private bool  smokeCleared = true;
     void Start()
     {
+       bestScore = PlayerPrefs.GetInt("BestScore");
+       bestScoreText.text = "Best Score: " + bestScore.ToString();
        spawner.active = false;
        title.SetActive(true); 
        scoreText.text = "Score: 0";
@@ -32,10 +42,49 @@ public class GameManager : MonoBehaviour
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
         player = playerPrefab;
         scoreText.enabled = false;
+
+        bestScoreText.enabled = false;
     }
     // Update is called once per frame
     void Update()
     {
+
+
+
+
+
+
+
+
+
+
+
+
+    if (!gameStarted)
+        {
+            var textColor = "#323232";
+            if (beatBestScore)
+            {
+                textColor = "#F00";
+            }
+
+            bestScoreText.text = "<color=" + textColor + ">Best Score: " + bestScore.ToString() + "</color"; 
+
+        }
+        else
+        {
+            bestScoreText.text = "";
+        }
+
+
+
+
+
+
+
+
+
+
         if(!gameStarted)
         {
             if(Input.anyKeyDown && smokeCleared)
@@ -76,6 +125,10 @@ public class GameManager : MonoBehaviour
         scoreSystem.GetComponent<Score>().score = 0;
         scoreText.text = "Score: 0";
         scoreSystem.GetComponent<Score>().Start();
+
+        beatBestScore = false;
+        bestScoreText.enabled = true;
+
     }
     void OnPlayerKilled()
     {
@@ -83,7 +136,27 @@ public class GameManager : MonoBehaviour
         gameStarted = false;
         splash.SetActive(true);
         Invoke("SplashScreen", 2f);
+
+        score = scoreSystem.GetComponent<Score>().score;
+        if (score > bestScore)
+        {
+            bestScore = score;
+            PlayerPrefs.SetInt("BestScore", bestScore);
+            beatBestScore = true;
+            bestScoreText.text = "Beat Score: " + bestScore.ToString();
+
+        }
+
+
+
+
     }
+
+
+
+
+
+    
     void SplashScreen()
     {
         smokeCleared = true;
