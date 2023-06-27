@@ -167,7 +167,7 @@ MonoBehaviour:
   title: {fileID: 2109078328}
   playerPrefab: {fileID: 1293495186871882, guid: 82169fb5eac75114e9dae4d2dd916e6f,
     type: 3}
-  player: {fileID: 0}
+  player: {fileID: 1113556232}
   splash: {fileID: 49882070}
   scoreSystem: {fileID: 712850555}
   scoreText: {fileID: 295476411}
@@ -925,6 +925,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1113556232 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1293495186871882, guid: 82169fb5eac75114e9dae4d2dd916e6f,
+    type: 3}
+  m_PrefabInstance: {fileID: 229317296}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1236217286
 GameObject:
   m_ObjectHideFlags: 0
