@@ -30,11 +30,14 @@ public class GameManager : MonoBehaviour
     private bool  smokeCleared = true;
     void Start()
     {
-       bestScore = PlayerPrefs.GetInt("BestScore");
-       bestScoreText.text = "Best Score: " + bestScore.ToString();
+       
        spawner.active = false;
        title.SetActive(true); 
        scoreText.text = "Score: 0";
+       bestScore = PlayerPrefs.GetInt("BestScore");
+       bestScoreText.text = "Best Score: " + bestScore.ToString();
+
+
     }
     void Awake()
     {
@@ -52,23 +55,15 @@ public class GameManager : MonoBehaviour
 
 
 
-
-
-
-
-
-
-
-
     if (!gameStarted)
         {
             var textColor = "#323232";
             if (beatBestScore)
             {
                 textColor = "#F00";
-            }
+           }
 
-            bestScoreText.text = "<color=" + textColor + ">Best Score: " + bestScore.ToString() + "</color"; 
+            bestScoreText.text = "<color=" + textColor + ">Best Score: " + bestScore.ToString() + "</color>"; 
 
         }
         else
